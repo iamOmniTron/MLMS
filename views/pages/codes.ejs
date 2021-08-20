@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<%-include("../partials/head")%>
+<body>
+    <%-include("../partials/navbar")%>
+    <div class="container">
+    <table class="table table-striped table-hover ">
+      <thead>
+        <tr>
+          <th scope="col" style="width:25%">id</th>
+          <th scope="col"style="width:40%">code</th>
+          <th scope="col"style="width:25%" colspan="2">status</th>
+        </tr>
+      </thead>
+      <tbody>
+          <%codes.forEach(code=>{%>
+        <tr>
+          <td>
+            .
+          </td>
+          <td class="align-item-center text-wrap"><%=code.code%></td>
+          <td class="align-item-center"><%=code.isActive?"unused":"used"%></td>
+        </tr>
+        <%})%>
+      </tbody>
+    <tfoot> 
+            <tr>
+                <td>
+                    <a href="/" class="btn btn-warning">
+                    <i class="fa fa-angle-left"></i> Home page
+                    </a>
+                </td>
+                <td  class="hidden-xs"></td>
+                <td class="hidden-xs text-start"><strong></strong></td>
+                <td>
+                <a href="/user/dashboard" class="btn btn-primary">
+                    Dashboard
+                </a> 
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    </div>
+    
+    <%-include("../partials/foot")%>
+</body>
+</html>

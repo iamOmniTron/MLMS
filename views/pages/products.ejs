@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<%-include("../partials/head")%>
+<body>
+    <%-include("../partials/navbar")%>
+    
+<section class="bg-light py-4 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="mb-3 text-success">Catalogue</h2>
+                <p class="lead">welcome to paywise stores</p>
+            </div>
+    <% products.forEach(product=>{ %>
+        <div class="col-md-6 col-lg-4">
+            <div class="card my-3">
+                <div class="card-thumbnail">
+                    <a href="/product/<%=product.id%>">
+                    <img src='<%=product.imageUrl%>' class="img-fluid image" alt="thumbnail"/>
+                    </a>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title"><a href="#" class="text-secondary">₦ <%=product.price%></a><product.price/h3>
+                    <p class="card-text"><%=product.description%></p>
+                    <form action="/cart/add/<%=product.id%>" method="post" id="add-to-cart">
+                        <button class="btn btn-warning" type="submit">Add To Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    <%})%>
+
+</div>
+</div>
+</section>
+
+    <%-include("../partials/foot")%>
+</body>
+</html>
+  

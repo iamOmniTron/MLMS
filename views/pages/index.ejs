@@ -1,0 +1,99 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+<%- include("../partials/head") %>
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      #jumbotron{
+      background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)),url("images/img-g.jpg") no-repeat center center; 
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+    color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <% /* %>
+      <div class="alert alert-success" role="alert">
+        hello
+      </div>  
+      <% */%>
+<header>
+  <%-include("../partials/navbar") %>
+</header>
+
+<main>
+
+  <section class="py-5 text-center container-fluid " id="jumbotron">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Welcome To Paywise</h1>
+        <p class="lead text-muted">Buy affordable goods and get them delivered to you faster through our trusted agents </p>
+        <a href="#">Refer more people and earn more</a>
+        <p>
+          <form action="/agent/register" method="get">
+          <button type="submit" class="btn btn-warning my-2">Become a Merchant</button>
+        </form>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <%products.forEach((product)=>{%>
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="<%=product.imageUrl%>" alt="" class="img-fluid image">
+
+            <div class="card-body">
+              <p class="card-text"><%=product.description%></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <form action="/cart/add/<%=product.id%>" method="post" id="add-to-cart">
+                    <button class="btn btn-warning" type="submit">Add To Cart</button>
+                </form>
+                </form>
+                  <a href="/product/<%=product.id%>" class="btn btn-sm btn-outline-secondary">View</a>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%})%>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="text-muted py-5">
+  <div class="container">
+    <p class="float-end mb-1">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="mb-1">All you want &copy; is available</p>
+    <p class="mb-0">New to Bootstrap? <a href="/products">Visit the Products Page</a></p>
+  </div>
+</footer>
+   <%-include("../partials/foot")%>
+  </body>
+</html>
